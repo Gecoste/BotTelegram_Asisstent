@@ -15,7 +15,7 @@
 
 ###################################################
 
-from modules import config
+from module import config
 from colorama import *
 import datetime
 init()

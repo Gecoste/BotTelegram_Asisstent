@@ -4,18 +4,18 @@ from aiogram import Bot, types
 from aiogram.utils import executor
 from aiogram.dispatcher import Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from Modules import config, handler, owner, keyboard, logger
+from module import config, logger, Body
 
 storage = MemoryStorage()
-bot = Bot(token=config.botkey, parse_mode=types.ParseMode.HTML)
+bot = Bot(token=config.api_key, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, storage=storage)
 
-handler.register_handlers(dp)
-owner.register_handlers(dp)
+Body.register_handlers(dp=dp)
 
 if __name__ == '__main__':
     os.system('clear')
     os.system('cls')
-    logger.success('Бот успешно запущен!')
+    logger.success('Чат-бот запущен и успешно выполняет свои обязанности!')
+    
 executor.start_polling(dp)
 
